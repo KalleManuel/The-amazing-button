@@ -32,8 +32,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        DistributePoints();
+        DoTheShuffle();
+
+       // DistributePoints();
     }
 
     // Update is called once per frame
@@ -46,15 +47,25 @@ public class GameController : MonoBehaviour
      }
     
 
-    public void DistributePoints()
+    public void DoTheShuffle()
     {
-        for (int i = 0; i < gameLenght; i++)
+        int replacements = Random.Range(100, 1000);
+
+        for (int i = 0; i < replacements; i++)
         {
-            int randomNumber = thePoints[Random.Range(0, thePoints.Length - 1)];
+            int A = Random.Range(0, thePoints.Length);
+            int B = Random.Range(0, thePoints.Length);
 
-            if (thePoints[randomNumber] == 0)
+            int a = thePoints[A];
+            int b = thePoints[B];
+            int c = thePoints[A];
 
-            numPlaceHolders[i] = thePoints[Random.Range(0, thePoints.Length - 1)];
+            a = b;
+            b = c;
+
+            thePoints[A] = a;
+            thePoints[B] = b;
         }
     }
 }
+
